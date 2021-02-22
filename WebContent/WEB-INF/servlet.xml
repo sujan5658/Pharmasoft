@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+	xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Step 5: Enables the Spring MVC @Controller programming model enables 
+		annotation features -->
+	<annotation-driven />
+	<context:component-scan
+		base-package="controllers" />
+
+	<!-- Step 6: Resolves views selected for rendering by @Controllers to .jsp 
+		resources in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+	<!-- Step 7: Resources for static folder to stores css file, java script, 
+		images -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- User defined bean -->
+	<beans:bean id="user" class="beans.User">
+		<beans:constructor-arg value=""></beans:constructor-arg>
+		<beans:constructor-arg value=""></beans:constructor-arg>
+		<beans:constructor-arg value=""></beans:constructor-arg>
+		<beans:constructor-arg value=""></beans:constructor-arg>
+	</beans:bean>
+	<beans:bean id="message" class="beans.Message">
+		<beans:constructor-arg value="false"></beans:constructor-arg>
+		<beans:constructor-arg value="defaultMessage"></beans:constructor-arg>
+	</beans:bean>
+	<beans:bean id="product" class="beans.Product">
+		<beans:constructor-arg value=" "></beans:constructor-arg>
+		<beans:constructor-arg value=" "></beans:constructor-arg>
+		<beans:constructor-arg value=" "></beans:constructor-arg>
+		<beans:constructor-arg value=" "></beans:constructor-arg>
+		<beans:constructor-arg value="2019-11-12"></beans:constructor-arg>
+		<beans:constructor-arg value="2023-11-12"></beans:constructor-arg>
+		<beans:constructor-arg value="0"></beans:constructor-arg>
+		<beans:constructor-arg value="0"></beans:constructor-arg>
+		<beans:constructor-arg value="0"></beans:constructor-arg>
+		<beans:constructor-arg value="false"></beans:constructor-arg>
+	</beans:bean>
+	<beans:bean id="pinfo" class="beans.PharmacyInfo">
+		<beans:constructor-arg value="Pharmacy Name"></beans:constructor-arg>
+		<beans:constructor-arg value="Address"></beans:constructor-arg>
+		<beans:constructor-arg value="2019-04-12"></beans:constructor-arg>
+		<beans:constructor-arg value="123456"></beans:constructor-arg>
+		<beans:constructor-arg value="9849675658"></beans:constructor-arg>
+	</beans:bean>
+	<beans:bean id="pharmacist" class="beans.Pharmacist">
+		<beans:property name="id" value="1"></beans:property>
+		<beans:property name="fullName" value="Full Name"></beans:property>
+		<beans:property name="contactAddress" value="Address"></beans:property>
+		<beans:property name="contactNumber" value="9898989898"></beans:property>
+		<beans:property name="gender" value="F"></beans:property>
+		<beans:property name="userName" value="User Name"></beans:property>
+		<beans:property name="userPass" value="Password"></beans:property>
+		<beans:property name="email" value="Email"></beans:property>
+		<beans:property name="registeredDate"
+			value="YYYY-MM-DD"></beans:property>
+		<beans:property name="retiredDate" value="1111-11-11"></beans:property>
+		<beans:property name="retiredStatus" value="false"></beans:property>
+	</beans:bean>
+	<beans:bean id="mail" class="beans.Mail">
+		<beans:constructor-arg value="computer2073.2016@gmail.com"></beans:constructor-arg>
+		<beans:constructor-arg value="Dangerous@#$5658"></beans:constructor-arg>
+		<beans:constructor-arg value=" "></beans:constructor-arg>
+		<beans:constructor-arg value=" "></beans:constructor-arg>
+		<beans:constructor-arg value=" "></beans:constructor-arg>
+	</beans:bean>
+	<beans:bean id="bill" class="beans.Bill">
+		<beans:property name="discount" value="0.0"></beans:property>
+		<beans:property name="grandTotal" value="0.0"></beans:property>
+	</beans:bean>
+</beans:beans>
